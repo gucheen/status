@@ -7,10 +7,12 @@
         <label for="content">Status Text</label>
         <textarea id="content" name="text" rows="6">{{text}}</textarea>
     </p>
+    {{if mastodonServer}}
     <p>
         <input type="checkbox" id="mastodon" name="postToMastodon"{{if publishedToMastodon}} checked{{/if}} disabled>
-        <label for="mastodon">Sync To Mastodon(m.cmx.im)</label>
+        <label for="mastodon">Sync To Mastodon({{mastodonServer}})</label>
     </p>
+    {{/if}}
     <input type="submit" value="Submit">
 </form>
 <script src="{{getResource('edit.js')}}"></script>

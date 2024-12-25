@@ -15,7 +15,7 @@ export async function statusRoutes(fastify) {
   fastify.get('/post', (req, reply) => {
     return reply.view('src/views/post.art', {
       view: 'post',
-      mastodonServer: process.env.mastodonServer,
+      mastodonServer: process.env.mastodon_server,
     })
   })
 
@@ -34,6 +34,7 @@ export async function statusRoutes(fastify) {
         createdAt: dayjs(match.time).format('YYYY-MM-DD HH:mm:ss'),
         updateAt: match.updateAt ? dayjs(match.updateAt).format('YYYY-MM-DD HH:mm:ss') : null,
         publishedToMastodon: typeof fastify.db.data.mastodonIdMap?.[match.id] === 'string',
+        mastodonServer: process.env.mastodon_server,
       })
     }
     const err = new Error()
