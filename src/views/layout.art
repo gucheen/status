@@ -24,7 +24,7 @@
         {{block 'main'}}{{/block}}
     </main>
     <footer>
-        <p>Powered by <a href="https://status.guchengf.me">status.guchengf.me</a></p>
+        <p>Powered by <a href="https://github.com/gucheen/status/">status</a></p>
     </footer>
     {{if js}}<script src="{{js}}"></script>{{/if}}
     {{block 'footer'}}{{/block}}
