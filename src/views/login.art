@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link href="/public/favicon.svg" rel="icon" type="image/svg+xml">
+    <link rel="stylesheet" href="{{getResource('login.css')}}">
+</head>
+
+<body>
+    <div class="main">
+        <img class="site-title" width="224" height="52" src="{{getResource('status.png')}}" alt="status">
+
+        <div class="card">
+
+            <h1 class="title">Log In</h1>
+
+            <form id="form" class="form">
+                <div>
+                    <label class="label" for="user">User</label>
+                    <input class="input" type="text" placeholder="Username" name="user" id="user" />
+                </div>
+                <div>
+                    <label class="label" for="password">Password</label>
+                    <input class="input" type="password" placeholder="Password" name="password" id="password" />
+                </div>
+                <button class="tech-button">
+                    <span class="tech-button-text">Login</span>
+                </button>
+            </form>
+
+        </div>
+    </div>
+    <script src="{{getResource('login.js')}}"></script>
+</body>
+
+</html>

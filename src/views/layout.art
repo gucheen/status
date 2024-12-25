@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{block 'title'}}{{/block}}</title>
+    <link href="/public/favicon.svg" rel="icon" type="image/svg+xml">
+    <link rel="stylesheet" href="https://unpkg.com/simpledotcss@2.2.1/simple.min.css">
+    <link rel="stylesheet" href="{{getResource('admin.css')}}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a<% if (view === 'post') { %> class="current"<% } %> href="/post">Post</a>
+            <a<% if (view === 'manage') { %> class="current"<% } %> href="/manage">Manage</a>
+            <a<% if (view === 'mastodon') { %> class="current"<% } %> href="/mastodon">Mastodon Auth</a>
+        </nav>
+        <h1>Status</h1>
+    </header>
+    <main class="main">
+        {{block 'main'}}{{/block}}
+    </main>
+    <footer>
+        <p>Powered by <a href="https://status.guchengf.me">status.guchengf.me</a></p>
+    </footer>
+    {{if js}}<script src="{{js}}"></script>{{/if}}
+    {{block 'footer'}}{{/block}}
+</body>
+
+</html>

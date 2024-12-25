@@ -1,0 +1,239 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+:root {
+    --color-base-primary: #3653cc;
+    --color-base-black: #1e252b;
+    --tw-ring-offset-width: 0;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgb(59 130 246 / 0.5);
+    --tw-shadow: 0 0 #0000;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0;
+    background-image: linear-gradient(119.53deg, #3653CC 37.47%, #3653CC 53.61%, #34BAF4 99.53%);
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+    margin: 24px auto;
+    padding: 0 24px;
+    max-width: 460px;
+}
+
+.site-title {
+    width: 224px;
+    height: 52px;
+    margin-bottom: 8px;
+}
+
+.card {
+    margin-top: 1.5rem;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.title {
+    color: var(--color-base-black);
+    font-size: 24px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.label {
+    display: block;
+    color: var(--color-base-black);
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    width: 100%;
+    border-radius: 8px;
+    border-width: 2px;
+    border-color: rgba(155, 169, 230, 0.1);
+    border-style: solid;
+    background-color: rgba(155, 169, 230, 0.1);
+    padding: 16px;
+    color: var(--color-base-black);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: 150ms;
+    appearance: none;
+}
+
+.input:focus {
+    border-color: var(--color-base-primary);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.tech-button {
+    margin-top: 24px;
+    border-width: 0;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #1e252b;
+    position: relative;
+    display: flex;
+    padding: 16px 32px;
+    align-items: center;
+    background-color: #3653cc;
+    box-sizing: border-box;
+    border-radius: 100px;
+    color: #ffffff;
+    gap: 16px;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+}
+
+.tech-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: radial-gradient(72.31% 69.17% at 50% 100%, #34BAF4 0%, #3653CC 100%);
+    transform: translateY(100%);
+    transition: transform ease-out .3s;
+    z-index: 0;
+}
+
+.tech-button:hover {
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.tech-button:hover::before {
+    transform: translateY(0);
+    transition: transform ease-out .3s;
+}
+
+.tech-button-text {
+    display: block;
+    z-index: 1;
+}
+
+@media only screen and (min-width : 768px) {
+    body {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0;
+    }
+
+    .main {
+        width: 32rem;
+    }
+
+    .card {
+        padding: 40px;
+    }
+}
+
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.info-msg {
+    color: #059;
+    background-color: #BEF;
+}
+
+.success-msg {
+    color: #270;
+    background-color: #DFF2BF;
+}
+
+.warning-msg {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+
+.error-msg {
+    color: #D8000C;
+    background-color: #FFBABA;
+}

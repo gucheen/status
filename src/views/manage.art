@@ -1,0 +1,26 @@
+{{extend './layout.art'}}
+{{block 'title'}}Manage status{{/block}}
+{{block 'main'}}
+<table id="table">
+    <thead>
+        <th>Time</th>
+        <th>Text</th>
+        <th>Operation</th>
+    </thead>
+    <tbody>
+        {{each data status}}
+        <tr>
+            <td>{{status.foramtTime}}{{if status.updateAt}}*{{/if}}</td>
+            <td>{{status.text}}</td>
+            <td>
+                <a class="edit" data-id="{{status.id}}" href="/posts/{{status.id}}">Edit</a>
+                <a class="delete" data-id="{{status.id}}">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/block}}
+{{block 'footer'}}
+<script src="{{getResource('manage.js')}}"></script>
+{{/block}}

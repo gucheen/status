@@ -1,0 +1,17 @@
+{{extend './layout.art'}}
+{{block 'title'}}Edit status{{/block}}
+{{block 'main'}}
+<form id="form">
+    <p>Published at <time>{{createdAt}}</time>{{if updateAt}}, Last updated at <time>{{updateAt}}</time>{{/if}}</p>
+    <p>
+        <label for="content">Status Text</label>
+        <textarea id="content" name="text" rows="6">{{text}}</textarea>
+    </p>
+    <p>
+        <input type="checkbox" id="mastodon" name="postToMastodon"{{if publishedToMastodon}} checked{{/if}} disabled>
+        <label for="mastodon">Sync To Mastodon(m.cmx.im)</label>
+    </p>
+    <input type="submit" value="Submit">
+</form>
+<script src="{{getResource('edit.js')}}"></script>
+{{/block}}

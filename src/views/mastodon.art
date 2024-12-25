@@ -1,0 +1,9 @@
+{{extend './layout.art'}}
+{{block 'title'}}Mastodon Authorize{{/block}}
+{{block 'main'}}
+<a href="{{mastodonAuthUrl}}">{{mastodonServer}} authorize</a>
+<div>
+    {{ if authorized }}Authorized with user: {{username}}{{/if}}
+</div>
+<script src="{{getResource('mastodon.js')}}"></script>
+{{/block}}

@@ -1,0 +1,5 @@
+node_modules
+localhost+2-key.pem
+localhost+2.pem
+database/*.json
+public

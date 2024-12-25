@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>{{title}}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @font-face {
+      font-family: "Neue Montreal";
+      src: url(NeueMontreal-Bold.otf) format("opentype");
+      font-weight: bold;
+    }
+
+    @font-face {
+      font-family: "Neue Montreal";
+      src: url(NeueMontreal-Regular.otf) format("opentype");
+    }
+
+    @font-face {
+      font-family: "Supply Mono";
+      src: url(Supply-Regular.otf) format("opentype");
+    }
+
+    @font-face {
+      font-family: "Source Code Pro";
+      src: url(SourceCodePro-Regular.ttf.woff2) format("woff2"),
+        url(SourceCodePro-Regular.ttf.woff) format("woff");
+    }
+
+    body {
+      margin: 20px auto;
+      max-width: 650px;
+      line-height: 1.5;
+      font-size: 20px;
+      color: #444;
+      background: #F7F7F7;
+      padding: 0 10px;
+      font-family: "Neue Montreal";
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.0;
+      font-family: "Neue Montreal";
+      font-weight: normal;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: min(80px, 11vw);
+      font-weight: bold;
+      margin-bottom: 30px;
+      margin-top: 40px;
+    }
+
+    code {
+      font-family: "Source Code Pro";
+    }
+
+    .thought {
+      padding: 5px;
+      margin-bottom: 15px;
+    }
+
+    .thought:target {
+      border-left: 2px solid #888;
+      margin-left: -15px;
+      padding-left: 18px;
+      background: #EEEEEE;
+    }
+
+    .thought h3 {
+      margin-bottom: 10px;
+    }
+
+    .thought p {
+      margin-top: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #334db7;
+    }
+
+    a:hover {
+      text-decoration: underline solid currentColor;
+    }
+
+    .thought>h3>a {
+      position: relative;
+      left: -1ch;
+    }
+
+    .thought a:hover {
+      text-decoration: none;
+    }
+
+    .thought a .hashlink {
+      position: relative;
+      left: -1.2ch;
+      float: left;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .thought:not(:target) a:hover .hashlink {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    li>p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="headline">{{title}}</h1>
+
+  <script>
+    var fit = function (el) {
+      var resize = function () {
+        el.style.fontSize = (el.clientWidth / 8.125) + 'px';
+      };
+
+      resize();
+
+      window.addEventListener('resize', resize, false);
+      window.addEventListener('orientationchange', resize, false);
+    };
+
+    fit(document.getElementById("headline"));
+  </script>
+
+  {{each data status}}
+  <div class='thought' id='{{status.time}}'>
+    <h3><a href='#{{status.time}}'>{{ status.dateStr }}<span class='hashlink'>#</span></a></h3>
+    <p>{{ status.text }}</p>
+  </div>
+  {{/each}}
+
+  <hr>
+  <p style="text-align:center">
+    Powered by <a href="https://github.com/gucheen/status">status</a>. Theme by <a href="https://wesleyac.thoughts.page/">wesley</a>.
+  </p>
+</body>
+
+</html>
