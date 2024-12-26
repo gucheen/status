@@ -1,17 +1,17 @@
 {
-  "name": "status",
+  "name": "@gucheen/status",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Dead simple micro-blog like app for personal status.",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon --env-file status.env --watch src src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["blog", "microblog"],
+  "author": "Cheng Gu <guchengf@gmail.com> (https://guchengf.me)",
+  "license": "MIT",
   "dependencies": {
     "@fastify/cookie": "^11.0.1",
     "@fastify/csrf-protection": "^7.0.1",
