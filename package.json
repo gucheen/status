@@ -1,7 +1,7 @@
 {
   "name": "@gucheen/status",
   "version": "1.0.0",
-  "description": "Dead simple micro-blog like app for personal status.",
+  "description": "Dead simple micro-blog like app for publishing personal status.",
   "main": "src/index.js",
   "type": "module",
   "scripts": {
