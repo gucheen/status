@@ -19,6 +19,6 @@ RUN npm install --production
 
 COPY --chown=user:user . .
 
-HEALTHCHECK CMD nc -vz -w1 localhost 3000 || exit 1
+HEALTHCHECK CMD nc -vz -w1 127.0.0.1 3000 || exit 1
 
 CMD ["npm", "start"]
