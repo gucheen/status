@@ -36,4 +36,4 @@ jobs:
         with:
           file: Dockerfile
           push: true
-          tags: ${{ vars.DOCKER_USERNAME }}/${{ env.REPO_NAME }}-${{ env.VERSION }}
+          tags: ${{ vars.DOCKER_USERNAME }}/${{ env.REPO_NAME }}:${{ env.VERSION }}
