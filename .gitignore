@@ -198,5 +198,6 @@ dist
 certs
 database/*.json
 public/index.html
+public/feed.xml
 status.env
 html

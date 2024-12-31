@@ -1,7 +1,10 @@
 import art from 'art-template'
 import dayjs from 'dayjs'
+import Emittery from 'emittery'
 import fsPromise from 'node:fs/promises'
 import path from 'node:path'
+
+export const indexPageEvent = new Emittery()
 
 export async function indexPlugin(fastify) {
   function getIndexPageData() {
@@ -23,6 +26,7 @@ export async function indexPlugin(fastify) {
   fastify.decorate('buildIndex', () => {
     const { data } = getIndexPageData()
     const html = art(path.join(process.cwd(), 'src/views/index.art'), { data, title: process.env.title })
+    indexPageEvent.emit('indexPageUpdate')
     return fsPromise.writeFile('public/index.html', html)
   })
 

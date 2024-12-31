@@ -13,6 +13,7 @@ import { loginRoutes } from './login.js'
 import { mastodonRoutes } from './mastodon.js'
 import { statusRoutes } from './post.js'
 import { indexPlugin } from './index-page.js'
+import { rssPlugin } from './rss.js'
 
 const config = {
   logger: true,
@@ -49,6 +50,7 @@ function createApp() {
   app.register(staticResourcesHash)
   app.register(lowdbDatabasePlugin)
   app.register(fp(indexPlugin))
+  app.register(fp(rssPlugin))
 
   app.setErrorHandler(function (error, req, reply) {
     if (error.statusCode === 401) {
