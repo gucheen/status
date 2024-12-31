@@ -1,23 +1,16 @@
-# syntax=docker/dockerfile:1
-
 FROM node:lts-alpine
-
-ARG USER_ID
-ARG GROUP_ID
-
-RUN addgroup --gid $GROUP_ID user
-RUN adduser --disabled-password --gecos '' --uid $USER_ID -G user user
-USER user
-
-ENV NODE_ENV=production
 
 WORKDIR /home/node/app
 
-COPY --chown=user:user ["package.json", "package-lock.json*", "./"]
+COPY package.json package-lock.json ./
 
-RUN npm install --production
+RUN npm ci --omit=dev --registry=https://registry.npmmirror.com
 
-COPY --chown=user:user . .
+COPY . .
+
+ENV NODE_ENV=production
+
+EXPOSE 3000
 
 HEALTHCHECK CMD nc -vz -w1 127.0.0.1 3000 || exit 1
 

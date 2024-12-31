@@ -3,3 +3,4 @@ localhost+2-key.pem
 localhost+2.pem
 database/*.json
 public/index.html
+*.env
