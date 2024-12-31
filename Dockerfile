@@ -4,7 +4,7 @@ WORKDIR /home/node/app
 
 COPY package.json package-lock.json ./
 
-RUN npm ci --omit=dev --registry=https://registry.npmmirror.com
+RUN npm ci --omit=dev
 
 COPY . .
 
