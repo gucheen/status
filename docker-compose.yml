@@ -1,6 +1,6 @@
 services:
   status:
-    image: gucheen/status
+    image: gucheen/status:1.0.0
     env_file:
       - status.env
     volumes:
