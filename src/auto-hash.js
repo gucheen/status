@@ -1,18 +1,16 @@
-import artTemplate from 'art-template'
 import autoHash from 'auto-hash'
 import fp from 'fastify-plugin'
 import fsPromise from 'fs/promises'
 import path from 'node:path'
+import { edge } from './edge.js'
 
 const STATIC_EXT_LIST = ['.js', '.css', '.png']
 
 function staticResourcesHash(fastify, opts, done) {
   if (process.env.NODE_ENV === 'development') {
-    fastify.decorate('staticFilesHashes', {})
-    artTemplate.defaults.imports.staticFilesHashes = {}
-    artTemplate.defaults.imports.getResource = (filename) => {
+    edge.global('getResource', (filename) => {
       return `/public/${filename}`
-    }
+    })
     done()
   } else {
     fsPromise.readdir('public')
@@ -31,11 +29,9 @@ function staticResourcesHash(fastify, opts, done) {
         })
       })
       .then((staticFilesHashes) => {
-        fastify.decorate('staticFilesHashes', staticFilesHashes)
-        artTemplate.defaults.imports.staticFilesHashes = staticFilesHashes
-        artTemplate.defaults.imports.getResource = (filename) => {
+        edge.global('getResource', (filename) => {
           return `/public/${filename}?h=${staticFilesHashes[filename]}`
-        }
+        })
         done()
       })
   }

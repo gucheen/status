@@ -76,7 +76,7 @@ export async function mastodonRoutes(fastify) {
           },
         }).json()
       }
-      return reply.view('src/views/mastodon.art', {
+      return reply.view('mastodon', {
         mastodonAuthUrl: `${process.env.mastodon_server}/oauth/authorize?client_id=${process.env.mastodon_client_id}&scope=read+write&redirect_uri=${process.env.mastodon_redirect_uri}&response_type=code`,
         mastodonServer: process.env.mastodon_server,
         authorized: typeof user.id === 'string',

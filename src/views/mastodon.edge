@@ -1,0 +1,12 @@
+@layout.admin({ title: 'Mastodon Authorize', view })
+    @slot('main')
+    <a href="{{mastodonAuthUrl}}">{{mastodonServer}} authorize</a>
+    <div>
+        {{ authorized ? `Authorized with user: ${username}` : '' }}
+    </div>
+    @endslot
+
+    @slot('footer')
+    <script src="{{getResource('mastodon.js')}}"></script>
+    @endslot
+@end

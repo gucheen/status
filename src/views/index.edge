@@ -123,12 +123,12 @@
     fit(document.getElementById("headline"));
   </script>
 
-  {{each data status}}
+  @each(status in data)
   <div class='thought' id='{{status.time}}'>
     <h3><a href='#{{status.time}}'>{{ status.dateStr }}<span class='hashlink'>#</span></a></h3>
     <p>{{ status.text }}</p>
   </div>
-  {{/each}}
+  @end
 
   <hr>
   <p style="text-align:center">

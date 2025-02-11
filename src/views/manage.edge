@@ -1,0 +1,27 @@
+@layout.admin({ title: 'Manage status', view })
+    @slot('main')
+    <table id="table">
+        <thead>
+            <th>Time</th>
+            <th>Text</th>
+            <th>Operation</th>
+        </thead>
+        <tbody>
+            @each(status in data)
+            <tr>
+                <td>{{status.foramtTime}}{{ status.updateAt ? '*' : '' }}</td>
+                <td>{{status.text}}</td>
+                <td>
+                    <a class="edit" data-id="{{status.id}}" href="/posts/{{status.id}}">Edit</a>
+                    <a class="delete" data-id="{{status.id}}">Delete</a>
+                </td>
+            </tr>
+            @end
+        </tbody>
+    </table>
+    @endslot
+
+    @slot('footer')
+    <script src="{{getResource('manage.js')}}"></script>
+    @endslot
+@end

@@ -1,8 +1,6 @@
-import art from 'art-template'
 import dayjs from 'dayjs'
 import Emittery from 'emittery'
 import fsPromise from 'node:fs/promises'
-import path from 'node:path'
 
 export const indexPageEvent = new Emittery()
 
@@ -23,9 +21,9 @@ export async function indexPlugin(fastify) {
     return { data }
   }
 
-  fastify.decorate('buildIndex', () => {
+  fastify.decorate('buildIndex', async () => {
     const { data } = getIndexPageData()
-    const html = art(path.join(process.cwd(), 'src/views/index.art'), { data, title: process.env.title })
+    const html = await fastify.view('index', { data, title: process.env.title })
     indexPageEvent.emit('indexPageUpdate')
     return fsPromise.writeFile('public/index.html', html)
   })
@@ -34,7 +32,7 @@ export async function indexPlugin(fastify) {
     fastify.get('/', (req, reply) => {
       const { data } = getIndexPageData()
 
-      return reply.view('src/views/index.art', {
+      return reply.view('index', {
         data,
         title: process.env.title,
       })

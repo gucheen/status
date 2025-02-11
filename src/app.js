@@ -1,8 +1,6 @@
 import cookies from '@fastify/cookie'
 import helmet from '@fastify/helmet'
 import FastifyStatic from '@fastify/static'
-import view from '@fastify/view'
-import art from 'art-template'
 import Fastify from 'fastify'
 import esso from 'fastify-esso'
 import fp from 'fastify-plugin'
@@ -14,6 +12,7 @@ import { mastodonRoutes } from './mastodon.js'
 import { statusRoutes } from './post.js'
 import { indexPlugin } from './index-page.js'
 import { rssPlugin } from './rss.js'
+import fastifyEdge from './edge.js'
 
 const config = {
   logger: true,
@@ -44,13 +43,9 @@ function createApp() {
   })
 
   app.register(cookies)
-  app.register(view, {
-    engine: {
-      'art-template': art,
-    },
-  })
 
   app.register(staticResourcesHash)
+  app.register(fastifyEdge)
   app.register(lowdbDatabasePlugin)
   app.register(fp(indexPlugin))
   app.register(fp(rssPlugin))

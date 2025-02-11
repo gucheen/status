@@ -13,7 +13,7 @@ export async function statusRoutes(fastify) {
   }
 
   fastify.get('/post', (req, reply) => {
-    return reply.view('src/views/post.art', {
+    return reply.view('post', {
       view: 'post',
       mastodonServer: process.env.mastodon_server,
     })
@@ -28,7 +28,7 @@ export async function statusRoutes(fastify) {
     }
     const match = fastify.db.data.status.find(item => item.id === req.params.statusId)
     if (match) {
-      return reply.view('src/views/edit.art', {
+      return reply.view('edit', {
         view: 'manage',
         text: match.text,
         createdAt: dayjs(match.time).format('YYYY-MM-DD HH:mm:ss'),
@@ -96,7 +96,7 @@ export async function statusRoutes(fastify) {
           foramtTime: date.format('YYYY-MM-DD HH:mm'),
         }
       })
-      return reply.view('src/views/manage.art', {
+      return reply.view('manage', {
         data,
         view: 'manage',
       })

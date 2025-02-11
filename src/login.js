@@ -5,7 +5,7 @@ const passwordHash = crypto.createHash('sha256').update(process.env.Password).di
 
 export async function loginRoutes(fastify) {
   fastify.get('/login', async (req, reply) => {
-    return reply.view('src/views/login.art')
+    return reply.view('login')
   })
 
   fastify.post(

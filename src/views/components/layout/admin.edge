@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{block 'title'}}{{/block}}</title>
+    <title>{{ title || 'Status' }}</title>
     <link rel="icon" href="favicon.svg">
     <link rel="stylesheet" href="https://unpkg.com/simpledotcss@2.2.1/simple.min.css">
     <link rel="stylesheet" href="{{getResource('admin.css')}}">
@@ -14,20 +14,25 @@
     <header>
         <nav>
             <a href="/">Home</a>
-            <a<% if (view === 'post') { %> class="current"<% } %> href="/post">Post</a>
-            <a<% if (view === 'manage') { %> class="current"<% } %> href="/manage">Manage</a>
-            <a<% if (view === 'mastodon') { %> class="current"<% } %> href="/mastodon">Mastodon Auth</a>
+            <a class="{{
+                html.classNames([{ current: view === 'post' }])
+            }}" href="/post">Post</a>
+            <a class="{{
+                html.classNames([{ current: view === 'manage' }])
+            }}" href="/manage">Manage</a>
+            <a class="{{
+                html.classNames([{ current: view === 'mastodon' }])
+            }}" href="/mastodon">Mastodon Auth</a>
         </nav>
         <h1>Status</h1>
     </header>
     <main class="main">
-        {{block 'main'}}{{/block}}
+        {{{ await $slots.main() }}}
     </main>
     <footer>
         <p>Powered by <a href="https://github.com/gucheen/status/">status</a></p>
     </footer>
-    {{if js}}<script src="{{js}}"></script>{{/if}}
-    {{block 'footer'}}{{/block}}
+    {{{ await $slots.footer() }}}
 </body>
 
 </html>

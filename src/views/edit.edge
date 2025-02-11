@@ -1,0 +1,26 @@
+@layout.admin({ title: 'Edit status', view })
+    @slot('main')
+    <form id="form">
+        <p>Published at <time>{{createdAt}}</time>{{{ updateAt ? `, Last updated at <time>${updateAt}</time>` : '' }}}</p>
+        <p>
+            <label for="content">Status Text</label>
+            <textarea id="content" name="text" rows="6">{{text}}</textarea>
+        </p>
+        @if(mastodonServer)
+        <p>
+            <input type="checkbox" id="mastodon" name="postToMastodon" disabled {{
+                html.attrs({
+                    checked: publishedToMastodon,
+                })
+            }}>
+            <label for="mastodon">Sync To Mastodon({{mastodonServer}})</label>
+        </p>
+        @end
+        <input type="submit" value="Submit">
+    </form>
+    @endslot
+
+    @slot('footer')
+    <script src="{{getResource('edit.js')}}"></script>
+    @endslot
+@end

@@ -1,0 +1,21 @@
+@layout.admin({ title: 'Post a new status', view })
+    @slot('main')
+    <form id="form">
+        <p>
+            <label for="content">Status Text</label>
+            <textarea id="content" name="text" rows="6"></textarea>
+        </p>
+        @if(mastodonServer)
+        <p>
+            <input type="checkbox" id="mastodon" name="postToMastodon" checked>
+            <label for="mastodon">Sync To Mastodon({{mastodonServer}})</label>
+        </p>
+        @end
+        <input type="submit" value="Submit">
+    </form>
+    @endslot
+
+    @slot('footer')
+    <script src="{{getResource('post.js')}}"></script>
+    @endslot
+@end
