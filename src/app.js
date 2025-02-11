@@ -39,6 +39,9 @@ function createApp() {
   app.get('/favicon.svg', (req, reply) => {
     reply.sendFile('favicon.svg')
   })
+  app.get('/robots.txt', (req, reply) => {
+    reply.sendFile('/robots.txt')
+  })
 
   app.register(cookies)
   app.register(view, {

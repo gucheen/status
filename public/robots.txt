@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: 
-Disallow: /admin/
-Disallow: /api/
+Disallow: /posts
+Disallow: /post
+Disallow: /login
+Disallow: /manage
+Disallow: /mastodon
