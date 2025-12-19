@@ -30,7 +30,8 @@
     "feed": "^4.2.2",
     "got": "^14.4.6",
     "lowdb": "^7.0.1",
-    "nanoid": "^5.0.9"
+    "nanoid": "^5.0.9",
+    "openid-client": "^6.8.1"
   },
   "devDependencies": {
     "@types/got": "^9.6.12",
