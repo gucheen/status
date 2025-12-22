@@ -93,18 +93,21 @@ body {
 
 .card {
     margin-top: 1.5rem;
-    padding: 20px;
-    width: 100%;
-    position: relative;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    display: flex;
+    width: 508px;
+    max-width: 100%;
+    padding: 40px;
+    flex-direction: column;
+    gap: 16px;
+    background: #ffffff;
+    box-shadow: 0px 0px 20px 0px rgba(54, 83, 204, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
 }
 
 .title {
     color: var(--color-base-black);
     font-size: 24px;
-    margin-bottom: 40px;
     text-align: center;
 }
 
