@@ -19,7 +19,7 @@
     "@fastify/cookie": "^11.0.2",
     "@fastify/csrf-protection": "^7.1.0",
     "@fastify/helmet": "^13.0.2",
-    "@fastify/static": "^8.3.0",
+    "@fastify/static": "^9.0.0",
     "auto-hash": "^2.0.0-rc.1",
     "dayjs": "^1.11.19",
     "edge.js": "^6.4.0",
@@ -28,7 +28,7 @@
     "fastify-esso": "^1.3.5",
     "fastify-plugin": "^5.1.0",
     "feed": "^5.1.0",
-    "got": "^14.6.5",
+    "got": "^14.6.6",
     "lowdb": "^7.0.1",
     "nanoid": "^5.1.6",
     "openid-client": "^6.8.1"
