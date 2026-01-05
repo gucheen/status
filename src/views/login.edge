@@ -30,6 +30,11 @@
                 <button class="tech-button">
                     <span class="tech-button-text">Login</span>
                 </button>
+                @if(oidcUrl)
+                <a href="{{oidcUrl}}" class="tech-link-button">
+                    <span class="tech-link-button-text">Use {{oidcProviderName}}</span>
+                </a>
+                @end
             </form>
 
         </div>
