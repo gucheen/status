@@ -29,6 +29,8 @@
     "fastify-plugin": "^5.1.0",
     "feed": "^5.1.0",
     "got": "^14.6.6",
+    "linkify-string": "^4.3.2",
+    "linkifyjs": "^4.3.2",
     "lowdb": "^7.0.1",
     "nanoid": "^5.1.6",
     "openid-client": "^6.8.1"

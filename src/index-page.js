@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import Emittery from 'emittery'
 import fsPromise from 'node:fs/promises'
+import linkifyStr from 'linkify-string'
 
 export const indexPageEvent = new Emittery()
 
@@ -12,6 +13,11 @@ export async function indexPlugin(fastify) {
       return {
         id: item.id,
         text: item.text,
+        html: linkifyStr(item.text, {
+          attributes: {
+            rel: 'nofollow',
+          },
+        }),
         time: item.time,
         dateStr,
         isoDate: date.toISOString(),
