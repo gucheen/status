@@ -4,7 +4,7 @@ WORKDIR /home/node/app
 
 COPY package.json package-lock.json ./
 
-RUN npm ci --omit=dev
+RUN ["npm", "ci", "--omit=dev"]
 
 COPY . .
 
@@ -14,4 +14,4 @@ EXPOSE 3000
 
 HEALTHCHECK CMD nc -vz -w1 127.0.0.1 3000 || exit 1
 
-CMD ["npm", "start"]
+ENTRYPOINT ["node", "src/index.js"]
