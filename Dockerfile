@@ -3,9 +3,12 @@ WORKDIR /home/node/app
 
 FROM base AS install
 
+RUN wget -qO- https://gobinaries.com/tj/node-prune | sh
+
+ENV NODE_ENV production
 RUN mkdir -p /temp/prod
 COPY package.json package-lock.json /temp/prod
-RUN cd /temp/prod && npm ci --omit=dev
+RUN cd /temp/prod && npm ci --omit=dev && node-prune
 
 FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
