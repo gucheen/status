@@ -199,6 +199,4 @@ certs
 database/*.json
 public/index.html
 public/feed.xml
-status.env
 html
-docker-compose.yml
